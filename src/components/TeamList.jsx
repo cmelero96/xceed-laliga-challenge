@@ -1,7 +1,7 @@
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import token from '../utils/token';
+import { TeamsHolder, TeamLink } from './UI';
 
 const TeamList = () => {
   const [{ data, loading, error }] = useAxios({
@@ -26,11 +26,14 @@ const TeamList = () => {
   } else {
     content = (
       <>
-        {teams.map((team) => (
-          <div key={team.id}>
-            <Link to={`/${team.id}`}>{team.name}</Link>
-          </div>
-        ))}
+        <header>Select a team to see its roster</header>
+        <TeamsHolder>
+          {teams.map((team) => (
+            <TeamLink key={team.id} to={`/${team.id}`}>
+              {team.name}
+            </TeamLink>
+          ))}
+        </TeamsHolder>
       </>
     );
   }
