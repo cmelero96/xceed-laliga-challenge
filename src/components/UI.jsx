@@ -42,4 +42,5 @@ export const TeamLink = styled(Link)`
   align-items: center;
   justify-content: center;
   color: #46555e;
+  text-decoration: none;
 `;
