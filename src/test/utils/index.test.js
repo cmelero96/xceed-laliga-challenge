@@ -1,4 +1,4 @@
-import { calculatePlayerAge } from '../utils';
+import { calculatePlayerAge } from '../../utils';
 
 describe('calculatePlayerAge', () => {
   test('Returns the correct age', () => {
