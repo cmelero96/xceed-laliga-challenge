@@ -10,6 +10,17 @@ This project is a Single-Page Application that displays all the teams in the Spa
 - With a terminal of your choice, go to the repo's main folder and execute the command `npm run start`.
 - The web should open by itself in a few seconds in your default browser. It can also be accessed by typing `localhost:3000` in the browser's searchbar.
 
+### API Key
+
+This app requires a [football-data](https://www.football-data.org/) API key to work properly.
+
+You can grab one for free at their website, then create a new file called `token.js` and place it inside `src/utils`. Then copy-paste the following into your new file:
+
+```
+const token = <YOUR API KEY GOES HERE>;
+export default token;
+```
+
 ## Feature progress
 
 - [x] Build project's skeleton using fake API data
@@ -18,10 +29,11 @@ This project is a Single-Page Application that displays all the teams in the Spa
   - [x] Create child component to display the players
   - [x] Create the unit testing files (leave empty for now)
 - [ ] Refactor the code
-  - [ ] Use the `useAxios` library to have a reusable service component to perform the API calls
+  - [x] Use the `useAxios` library to have a reusable service component to perform the API calls
   - [ ] Create the handler methods to sort the players
   - [ ] Create unit tests for the components (not for the API service)
   - [ ] Styling
 - [ ] Code polishing
   - [ ] Create a pagination handler to show only 3 players at the beginning, then display 3 more for every time the _Show more_ button is clicked
+  - [ ] Consider using localStorage to cache the API results even when reloading the page
   - [ ] Setup all unit testing (including the mocked API service)

@@ -1,17 +1,31 @@
 import { Link, Outlet, useParams } from 'react-router-dom';
-import { teams } from '../utils/fakedApiCall';
 import { calculatePlayerAge } from '../utils';
+import useAxios from 'axios-hooks';
+import { useEffect, useState } from 'react';
+import token from '../utils/token';
 
 const Team = () => {
   const { teamId } = useParams();
+  const [{ data, loading, error }] = useAxios({
+    baseURL: 'https://api.football-data.org/v2',
+    url: `/teams/${teamId}`,
+    headers: { 'X-Auth-Token': token },
+  });
+  const [players, setPlayers] = useState([]);
 
-  const teamData = teams.find((team) => team.id === +teamId);
+  useEffect(() => {
+    if (!loading && !error) {
+      setPlayers(data.squad);
+    }
+  }, [data, loading, error]);
 
   let content;
-  if (!teamData) {
-    content = <div>Team data not found</div>;
+  if (error) {
+    content = <div>Error</div>;
+  } else if (loading) {
+    content = <div>Loading...</div>;
   } else {
-    content = teamData.squad.map((player) => (
+    content = players.map((player) => (
       <div key={player.id}>
         <span>{player.name} | </span>
         <span>{player.nationality} | </span>
