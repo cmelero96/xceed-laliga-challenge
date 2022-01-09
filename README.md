@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Xceed LaLiga Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Single-Page Application that displays all the teams in the Spanish Football First Division League (_LaLiga_).
 
-## Available Scripts
+## How to use
 
-In the project directory, you can run:
+- If you don't have it already, [install Git](https://github.com/git-guides/install-git).
+- Use the command `git clone https://github.com/cmelero96/xceed-laliga-challenge.git` to download a local copy
+- Alternatively to using Git, you can download a local copy from the repo's main page, by clicking on the _Code_ button and selecting _Download ZIP_. Or just follow [this link](https://github.com/cmelero96/xceed-laliga-challenge/archive/refs/heads/master.zip).
+- With a terminal of your choice, go to the repo's main folder and execute the command `npm run start`.
+- The web should open by itself in a few seconds in your default browser. It can also be accessed by typing `localhost:3000` in the browser's searchbar.
 
-### `npm start`
+## Feature progress
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [ ] Build project's skeleton using fake API data
+  - [ ] Hardcode a sample of the teams and the players instead of doing API calls from the beginning
+  - [ ] Create teams list component
+  - [ ] Create child component to display the players
+  - [ ] Do basic styling
+  - [ ] Create the unit testing files (leave empty for now)
+- [ ] Refactor the code
+  - [ ] Use the `useAxios` library to have a reusable service component to perform the API calls
+  - [ ] Create the handler methods to sort the players
+  - [ ] Create unit tests for the components (not for the API service)
+  - [ ] Improve styling
+- [ ] Code polishing
+  - [ ] Create a pagination handler to show only 3 players at the beginning, then display 3 more for every time the _Show more_ button is clicked
+  - [ ] Setup all unit testing (including the mocked API service)
