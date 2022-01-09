@@ -9,7 +9,6 @@ export const Wrapper = styled.section`
   background-color: #fff;
   box-shadow: 0 2px 4px 0 #e2e4e5;
 
-  font-family: Avenir, 'Comic Sans MS';
   text-align: center;
   font-size: 20px;
   font-weight: 900;

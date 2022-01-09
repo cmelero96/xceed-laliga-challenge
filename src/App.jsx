@@ -18,9 +18,20 @@ const AppWrapper = styled.div`
   background-color: #f4f4f4;
 `;
 
+const Header = styled.header`
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 119px;
+  border: solid 1px #979797;
+  background-color: #fff;
+`;
+
 function App() {
   return (
     <AppWrapper className="App">
+      <Header></Header>
       <MainContainer></MainContainer>
     </AppWrapper>
   );
