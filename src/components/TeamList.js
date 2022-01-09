@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { competition } from '../utils/fakedApiCall';
 
-const TeamList = ({ onTeamClicked }) => {
+const TeamList = () => {
   return (
     <>
       {competition.teams.map((team) => (
