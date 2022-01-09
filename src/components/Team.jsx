@@ -3,7 +3,6 @@ import { calculatePlayerAge } from '../utils';
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
 import token from '../utils/token';
-import { Wrapper } from './UI';
 
 const Team = () => {
   const { teamId } = useParams();

@@ -6,6 +6,7 @@ import logoMedium from './assets/liga-background@2x.png';
 import logoLarge from './assets/liga-background@3x.png';
 
 const AppWrapper = styled.div`
+  position: absolute;
   width: 100%;
   height: 1382px;
   background-image: image-set(

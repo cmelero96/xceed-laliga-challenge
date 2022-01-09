@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 export const Wrapper = styled.section`
   width: 90%;
   height: fit-content;
-  margin: 0 2rem;
-  padding: 0 0 1rem 0;
+  margin: 10rem 2rem;
+  padding: 2rem 0;
   border-radius: 6px;
   background-color: #fff;
   box-shadow: 0 2px 4px 0 #e2e4e5;
@@ -24,8 +24,8 @@ export const Wrapper = styled.section`
     font-stretch: normal;
     font-style: normal;
     line-height: 0.93;
-    margin: 1em 0;
     color: #3e4b54;
+    padding: 0 0 2rem 0;
   }
 `;
 
