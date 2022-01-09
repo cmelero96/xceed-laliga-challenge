@@ -6,8 +6,8 @@ const MainContainer = () => {
   return (
     <div className="container" style={{ border: '1px solid black' }}>
       <Routes>
-        <Route path="/" element={<TeamList></TeamList>}></Route>
-        <Route path=":teamId" element={<Team></Team>}></Route>
+        <Route path="/" element={<TeamList />}></Route>
+        <Route path=":teamId" element={<Team />}></Route>
       </Routes>
     </div>
   );
