@@ -17,7 +17,7 @@ This app requires a [football-data](https://www.football-data.org/) API key to w
 You can grab one for free at their website, then create a new file called `token.js` and place it inside `src/utils`. Then copy-paste the following into your new file:
 
 ```
-const token = <YOUR API KEY GOES HERE>;
+const token = '<YOUR API KEY GOES HERE>';
 export default token;
 ```
 
