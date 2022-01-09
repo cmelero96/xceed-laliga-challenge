@@ -19,9 +19,6 @@ const AppWrapper = styled.div`
 `;
 
 const Header = styled.header`
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
   width: 100%;
   height: 119px;
   border: solid 1px #979797;
