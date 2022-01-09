@@ -1,34 +1,42 @@
 import './App.css';
 import MainContainer from './components/MainContainer';
 import styled from 'styled-components';
-import logoSmall from './assets/liga-background.png';
-import logoMedium from './assets/liga-background@2x.png';
-import logoLarge from './assets/liga-background@3x.png';
+import ligaLogoSmall from './assets/liga-background.png';
+import ligaLogoMedium from './assets/liga-background@2x.png';
+import ligaLogoLarge from './assets/liga-background@3x.png';
+import xceedLogoSmall from './assets/xceed-logo-black.png';
+import xceedLogoMedium from './assets/xceed-logo-black@2x.png';
+import xceedLogoLarge from './assets/xceed-logo-black@3x.png';
+import { AppHeader } from './components/UI';
 
 const AppWrapper = styled.div`
   position: absolute;
   width: 100%;
   height: 1382px;
   background-image: image-set(
-    url(${logoSmall}) 1x,
-    url(${logoMedium}) 2x,
-    url(${logoLarge}) 3x
+    url(${ligaLogoSmall}) 1x,
+    url(${ligaLogoMedium}) 2x,
+    url(${ligaLogoLarge}) 3x
   );
   background-repeat: no-repeat;
   background-color: #f4f4f4;
-`;
-
-const Header = styled.header`
-  width: 100%;
-  height: 119px;
-  border: solid 1px #979797;
-  background-color: #fff;
+  background-size: contain;
 `;
 
 function App() {
   return (
     <AppWrapper className="App">
-      <Header></Header>
+      <AppHeader>
+        <img
+          className="xceed-icon"
+          src={xceedLogoSmall}
+          srcSet={`${xceedLogoSmall}, ${xceedLogoMedium} 2x, ${xceedLogoLarge} 3x`}
+          alt="xceed icon"
+        ></img>
+        <div>
+          <h1>Xceed Liga Challenge 2021</h1>
+        </div>
+      </AppHeader>
       <MainContainer></MainContainer>
     </AppWrapper>
   );
