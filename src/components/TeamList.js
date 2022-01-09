@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
 import { competition } from '../utils/fakedApiCall';
 
 const TeamList = ({ onTeamClicked }) => {
   return (
     <>
       {competition.teams.map((team) => (
-        <div key={team.id} onClick={() => onTeamClicked(team.id)}>
-          {team.name}
+        <div key={team.id}>
+          <Link to={`/${team.id}`}>{team.name}</Link>
         </div>
       ))}
     </>
