@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 export const Wrapper = styled.section`
   width: 90%;
-  height: 100%;
-  margin: 2rem;
+  height: fit-content;
+  margin: 0 2rem;
+  padding: 0 0 1rem 0;
   border-radius: 6px;
+  background-color: #fff;
   box-shadow: 0 2px 4px 0 #e2e4e5;
 
   font-family: Avenir, 'Comic Sans MS';
