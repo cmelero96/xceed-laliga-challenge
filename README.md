@@ -12,10 +12,10 @@ This project is a Single-Page Application that displays all the teams in the Spa
 
 ## Feature progress
 
-- [ ] Build project's skeleton using fake API data
-  - [ ] Hardcode a sample of the teams and the players instead of doing API calls from the beginning
-  - [ ] Create teams list component
-  - [ ] Create child component to display the players
+- [x] Build project's skeleton using fake API data
+  - [x] Hardcode a sample of the teams and the players instead of doing API calls from the beginning
+  - [x] Create teams list component
+  - [x] Create child component to display the players
   - [ ] Do basic styling
   - [ ] Create the unit testing files (leave empty for now)
 - [ ] Refactor the code
