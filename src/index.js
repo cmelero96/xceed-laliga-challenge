@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 import { createGlobalStyle } from 'styled-components';
-import avenir from './assets/AvenirLTStd-Black.otf';
+import avenir from './assets/AvenirLTStd-Roman.otf';
 
 const AvenirFont = createGlobalStyle`
   @font-face {
