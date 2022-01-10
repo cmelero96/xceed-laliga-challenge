@@ -18,6 +18,8 @@ export const calculatePlayerAge = ({ dateOfBirth }) => {
 };
 
 export const sortElementsByField = (elements, field, descending = false) => {
+  if (!elements.length) return [];
+
   const copy = [...elements];
 
   // Assumption: If elements[0] is a string, compare everything as string; otherwise number

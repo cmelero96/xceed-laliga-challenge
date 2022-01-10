@@ -72,7 +72,7 @@ describe.only('sortElementsByField', () => {
     );
   });
 
-  test('Returns sorted correctly with a string field and null values', () => {
+  test('Places null values at the beginning, or at the end if reversed, in string sortings', () => {
     const unsorted = [{}, { test: 'x' }, {}, { test: 'a' }, {}];
     const expected = [{}, {}, {}, { test: 'a' }, { test: 'x' }];
 
@@ -109,7 +109,7 @@ describe.only('sortElementsByField', () => {
     );
   });
 
-  test('Returns sorted correctly with a number field and null values', () => {
+  test('Places null values at the beginning, or at the end if reversed, in number sortings', () => {
     const unsorted = [{}, { test: 5 }, {}, { test: 8 }, {}, { test: -50 }];
     const expected = [{}, {}, {}, { test: -50 }, { test: 5 }, { test: 8 }];
 
@@ -121,5 +121,9 @@ describe.only('sortElementsByField', () => {
     expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
       expected.reverse()
     );
+  });
+
+  test('Returns an empty array when provided no elements', () => {
+    expect(sortElementsByField([], 'test')).toStrictEqual([]);
   });
 });
