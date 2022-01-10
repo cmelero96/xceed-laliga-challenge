@@ -44,7 +44,6 @@ const Team = () => {
 
   // Sort the displayed players whenever we change our sorting configuration
   useEffect(() => {
-    console.log('Sort by ' + sortingField + ' and reversing is ' + reverseSort);
     setDisplayPlayers(sortElementsByField(players, sortingField, reverseSort));
   }, [players, sortingField, reverseSort]);
 
