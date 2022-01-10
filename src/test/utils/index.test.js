@@ -1,4 +1,4 @@
-import { calculatePlayerAge } from '../../utils';
+import { calculatePlayerAge, sortElementsByField } from '../../utils';
 
 describe('calculatePlayerAge', () => {
   test('Returns the correct age', () => {
@@ -42,5 +42,84 @@ describe('calculatePlayerAge', () => {
   test('Returns undefined when no date is provided', () => {
     const expectFunction = expect(calculatePlayerAge({}));
     expectFunction.toBeUndefined();
+  });
+});
+
+describe.only('sortElementsByField', () => {
+  test('Returns sorted correctly with a string field', () => {
+    const unsorted = [
+      { test: 'ab' },
+      { test: 'áa' },
+      { test: 'Ác' },
+      { test: ' ' },
+      { test: 'zzz' },
+    ];
+    const expected = [
+      { test: ' ' },
+      { test: 'áa' },
+      { test: 'ab' },
+      { test: 'Ác' },
+      { test: 'zzz' },
+    ];
+
+    // Non-reversed
+    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
+      expected
+    );
+    // Reversed
+    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+      expected.reverse()
+    );
+  });
+
+  test('Returns sorted correctly with a string field and null values', () => {
+    const unsorted = [{}, { test: 'x' }, {}, { test: 'a' }, {}];
+    const expected = [{}, {}, {}, { test: 'a' }, { test: 'x' }];
+
+    // Non-reversed
+    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
+      expected
+    );
+    // Reversed
+    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+      expected.reverse()
+    );
+  });
+
+  test('Uses localeCompare when available on strings', () => {
+    const unsorted = [{ test: 'a' }, { test: 'b' }];
+    const spy = jest.spyOn(String.prototype, 'localeCompare');
+
+    sortElementsByField(unsorted, 'test');
+
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  test('Returns sorted correctly with a number field', () => {
+    const unsorted = [{ test: 6 }, { test: -20 }, { test: 0 }, { test: 77 }];
+    const expected = [{ test: -20 }, { test: 0 }, { test: 6 }, { test: 77 }];
+
+    // Non-reversed
+    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
+      expected
+    );
+    // Reversed
+    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+      expected.reverse()
+    );
+  });
+
+  test('Returns sorted correctly with a number field and null values', () => {
+    const unsorted = [{}, { test: 5 }, {}, { test: 8 }, {}, { test: -50 }];
+    const expected = [{}, {}, {}, { test: -50 }, { test: 5 }, { test: 8 }];
+
+    // Non-reversed
+    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
+      expected
+    );
+    // Reversed
+    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+      expected.reverse()
+    );
   });
 });
