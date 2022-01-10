@@ -120,20 +120,23 @@ export const TableRow = styled.div`
 
   .col {
     display: inline-block;
-    width: 28%;
+    width: 25%;
     text-align: left;
     font-size: 14px;
     font-stretch: normal;
     font-style: normal;
     font-weight: 300;
-    &.small {
-      width: 11%;
-    }
   }
 
   &.header {
     font-size: 14px;
     color: #b6babd;
+
+    .col:hover {
+      outline: 1px solid lightgray;
+      border-radius: 1px;
+      cursor: pointer;
+    }
   }
 
   &.row {

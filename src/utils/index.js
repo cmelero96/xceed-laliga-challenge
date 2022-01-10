@@ -16,3 +16,27 @@ export const calculatePlayerAge = ({ dateOfBirth }) => {
 
   return age;
 };
+
+export const sortElementsByField = (elements, field, descending = false) => {
+  const copy = [...elements];
+
+  // Assumption: If elements[0] is a string, compare everything as string; otherwise number
+  const isStringComparison = !!elements[0][field]?.localeCompare;
+
+  const sorted = copy.sort((a, b) => {
+    const f1 = a[field];
+    const f2 = b[field];
+    const reverseIfDescending = descending ? -1 : 1;
+
+    if (isStringComparison) {
+      return (f1 || '').localeCompare(f2 || '') * reverseIfDescending;
+    } else {
+      if (f1 == null) return -reverseIfDescending;
+      if (f2 == null) return reverseIfDescending;
+
+      return (f1 > f2 ? 1 : -1) * reverseIfDescending;
+    }
+  });
+
+  return sorted;
+};
