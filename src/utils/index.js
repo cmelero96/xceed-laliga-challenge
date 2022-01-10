@@ -42,3 +42,26 @@ export const sortElementsByField = (elements, field, descending = false) => {
 
   return sorted;
 };
+
+const normalizeText = (text) => {
+  return text
+    .trim()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-zA-Z ]/g, '')
+    .toLowerCase();
+};
+
+export const filterPlayersByText = (players, text) => {
+  const fixedText = normalizeText(text);
+
+  if (fixedText === '') return players;
+
+  const copy = [...players];
+
+  const filtered = copy.filter((p) =>
+    normalizeText(p.name).includes(fixedText)
+  );
+
+  return filtered;
+};

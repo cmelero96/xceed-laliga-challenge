@@ -19,6 +19,26 @@ export const AppHeader = styled.header`
     left: 5%;
   }
 
+  .searchbar {
+    position: absolute;
+    left: 5%;
+    height: 2em;
+    padding: 0 0.5em;
+    border-radius: 30px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    input {
+      margin: 0 1em;
+      height: 50%;
+      background-color: #f7f7f7;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  }
+
   h1 {
     width: 361px;
     height: 26px;
@@ -151,4 +171,20 @@ export const TableRow = styled.div`
       font-style: oblique;
     }
   }
+`;
+
+export const SeeMoreButton = styled.button`
+  background-color: initial;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Avenir';
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: 1.4px;
+  text-align: center;
+  color: #b6babd;
 `;
