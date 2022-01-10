@@ -26,16 +26,14 @@ const AppWrapper = styled.div`
 function App() {
   return (
     <AppWrapper className="App">
-      <AppHeader>
+      <AppHeader className="main-header">
         <img
           className="xceed-icon"
           src={xceedLogoSmall}
           srcSet={`${xceedLogoSmall}, ${xceedLogoMedium} 2x, ${xceedLogoLarge} 3x`}
           alt="xceed icon"
         ></img>
-        <div>
-          <h1>Xceed Liga Challenge 2021</h1>
-        </div>
+        <h1>Xceed Liga Challenge 2021</h1>
       </AppHeader>
       <MainContainer></MainContainer>
     </AppWrapper>

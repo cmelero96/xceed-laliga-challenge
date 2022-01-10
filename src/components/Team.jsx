@@ -1,8 +1,9 @@
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { calculatePlayerAge } from '../utils';
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
 import token from '../utils/token';
+import { AppHeader, TableRow } from './UI';
 
 const Team = () => {
   const { teamId } = useParams();
@@ -12,10 +13,12 @@ const Team = () => {
     headers: { 'X-Auth-Token': token },
   });
   const [players, setPlayers] = useState([]);
+  const [teamName, setTeamName] = useState('');
 
   useEffect(() => {
     if (!loading && !error) {
       setPlayers(data.squad);
+      setTeamName(data.name);
     }
   }, [data, loading, error]);
 
@@ -25,21 +28,33 @@ const Team = () => {
   } else if (loading) {
     content = <div>Loading...</div>;
   } else {
-    content = players.map((player) => (
-      <div key={player.id}>
-        <span>{player.name} | </span>
-        <span>{player.nationality} | </span>
-        <span>{player.position} | </span>
-        <span>{calculatePlayerAge(player)}</span>
-      </div>
-    ));
+    content = (
+      <>
+        <TableRow className="header">
+          <span className="col">NAME</span>
+          <span className="col">NATIONALITY</span>
+          <span className="col">POSITION</span>
+          <span className="col small">AGE</span>
+        </TableRow>
+        {players.map((player) => (
+          <TableRow key={player.id} className="row">
+            <span className="col highlighted">{player.name}</span>
+            <span className="col">{player.nationality}</span>
+            <span className="col">{player.position}</span>
+            <span className="col small">{calculatePlayerAge(player)}</span>
+          </TableRow>
+        ))}
+      </>
+    );
   }
 
   return (
     <>
+      <AppHeader>
+        <h2>{teamName}</h2>
+      </AppHeader>
       {content}
       <Outlet></Outlet>
-      <Link to={'/'}>Go back</Link>
     </>
   );
 };

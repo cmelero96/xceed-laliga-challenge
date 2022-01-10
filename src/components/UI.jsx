@@ -3,34 +3,42 @@ import { Link } from 'react-router-dom';
 
 export const AppHeader = styled.header`
   width: 100%;
-  height: 7.5rem;
-  border: solid 1px #979797;
-  background-color: #fff;
+  height: 4rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  &.main-header {
+    height: 7.5rem;
+    border: solid 1px #979797;
+    background-color: #fff;
+  }
 
   .xceed-icon {
     position: absolute;
     left: 5%;
   }
 
-  div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  h1 {
+    width: 361px;
+    height: 26px;
+    font-size: 28px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.93;
+    letter-spacing: normal;
+    color: #3e4b54;
+  }
 
-    h1 {
-      width: 361px;
-      height: 26px;
-      font-family: Avenir;
-      font-size: 28px;
-      font-weight: 900;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 0.93;
-      letter-spacing: normal;
-      color: #3e4b54;
-    }
+  h2 {
+    font-size: 20px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: oblique;
+    line-height: 1.3;
+    letter-spacing: normal;
+    color: #46555e;
   }
 
   @media (max-width: 920px) {
@@ -102,5 +110,42 @@ export const TeamLink = styled(Link)`
 
   @media (max-width: 920px) {
     flex: 1 0 25%;
+  }
+`;
+
+export const TableRow = styled.div`
+  display: block;
+  padding-left: 5%;
+  margin: 1em 0;
+
+  .col {
+    display: inline-block;
+    width: 28%;
+    text-align: left;
+    font-size: 14px;
+    font-stretch: normal;
+    font-style: normal;
+    font-weight: 300;
+    &.small {
+      width: 11%;
+    }
+  }
+
+  &.header {
+    font-size: 14px;
+    color: #b6babd;
+  }
+
+  &.row {
+    color: #46555e;
+
+    .col {
+      font-size: 20px;
+    }
+
+    .col.highlighted {
+      font-weight: 900;
+      font-style: oblique;
+    }
   }
 `;
