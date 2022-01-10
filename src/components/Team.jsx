@@ -6,6 +6,7 @@ import token from '../utils/token';
 import { AppHeader, TableRow } from './UI';
 
 const fields = ['name', 'nationality', 'position', 'age'];
+const rowStep = 3;
 
 const Team = () => {
   const { teamId } = useParams();
@@ -19,6 +20,9 @@ const Team = () => {
   const [teamName, setTeamName] = useState('');
   const [sortingField, setSortingField] = useState(fields[0]);
   const [reverseSort, setReverseSort] = useState(false);
+  const [maxRows, setMaxRows] = useState(rowStep);
+
+  const displayButton = displayPlayers.length < players.length;
 
   // Toggle the reverseSort variable if clicking on the same field; otherwise don't reverse
   const configSort = (field) => {
@@ -39,13 +43,16 @@ const Team = () => {
         }))
       );
       setTeamName(data.name);
+      setMaxRows(rowStep);
     }
   }, [data, loading, error]);
 
   // Sort the displayed players whenever we change our sorting configuration
   useEffect(() => {
-    setDisplayPlayers(sortElementsByField(players, sortingField, reverseSort));
-  }, [players, sortingField, reverseSort]);
+    setDisplayPlayers(
+      sortElementsByField(players, sortingField, reverseSort).slice(0, maxRows)
+    );
+  }, [players, sortingField, reverseSort, maxRows]);
 
   let content;
   if (error) {
@@ -71,6 +78,11 @@ const Team = () => {
             ))}
           </TableRow>
         ))}
+        {displayButton && (
+          <button onClick={() => setMaxRows((n) => n + rowStep)}>
+            SEE MORE
+          </button>
+        )}
       </>
     );
   }
