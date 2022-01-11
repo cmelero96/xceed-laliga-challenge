@@ -19,7 +19,7 @@ const AvenirFont = createGlobalStyle`
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <AvenirFont></AvenirFont>
+      <AvenirFont />
       <App />
     </BrowserRouter>
   </React.StrictMode>,
