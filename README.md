@@ -20,10 +20,3 @@ You can grab one for free at their website, then create a new file called `token
 const token = '<YOUR API KEY GOES HERE>';
 export default token;
 ```
-
-## TODO
-
-- [x] Highlight the currently-selected column to sort by
-- [ ] Setup component unit testing
-- [x] Change the HTML structure of the table with players info
-- [ ] (TBD) Make everything responsive (i.e. change layouts so elements don't collapse with each other on small screens, etc)
