@@ -9,7 +9,7 @@ import avenir from './assets/AvenirLTStd-Roman.otf';
 
 const AvenirFont = createGlobalStyle`
   @font-face {
-      font-family: 'Avenir';
+      font-family: Avenir;
       src: url(${avenir}) format('opentype');
       font-weight: normal;
       font-style: normal;
