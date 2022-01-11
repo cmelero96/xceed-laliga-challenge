@@ -68,11 +68,9 @@ describe('sortElementsByField', () => {
     ];
 
     // Non-reversed
-    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
-      expected
-    );
+    expect(sortElementsByField(unsorted, 'test', false)).toEqual(expected);
     // Reversed
-    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+    expect(sortElementsByField(unsorted, 'test', true)).toEqual(
       expected.reverse()
     );
   });
@@ -82,11 +80,9 @@ describe('sortElementsByField', () => {
     const expected = [{}, {}, {}, { test: 'a' }, { test: 'x' }];
 
     // Non-reversed
-    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
-      expected
-    );
+    expect(sortElementsByField(unsorted, 'test', false)).toEqual(expected);
     // Reversed
-    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+    expect(sortElementsByField(unsorted, 'test', true)).toEqual(
       expected.reverse()
     );
   });
@@ -105,11 +101,9 @@ describe('sortElementsByField', () => {
     const expected = [{ test: -20 }, { test: 0 }, { test: 6 }, { test: 77 }];
 
     // Non-reversed
-    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
-      expected
-    );
+    expect(sortElementsByField(unsorted, 'test', false)).toEqual(expected);
     // Reversed
-    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+    expect(sortElementsByField(unsorted, 'test', true)).toEqual(
       expected.reverse()
     );
   });
@@ -119,17 +113,15 @@ describe('sortElementsByField', () => {
     const expected = [{}, {}, {}, { test: -50 }, { test: 5 }, { test: 8 }];
 
     // Non-reversed
-    expect(sortElementsByField(unsorted, 'test', false)).toStrictEqual(
-      expected
-    );
+    expect(sortElementsByField(unsorted, 'test', false)).toEqual(expected);
     // Reversed
-    expect(sortElementsByField(unsorted, 'test', true)).toStrictEqual(
+    expect(sortElementsByField(unsorted, 'test', true)).toEqual(
       expected.reverse()
     );
   });
 
   test('Returns an empty array when provided no elements', () => {
-    expect(sortElementsByField([], 'test')).toStrictEqual([]);
+    expect(sortElementsByField([], 'test')).toEqual([]);
   });
 });
 
@@ -166,28 +158,26 @@ describe('filterPlayersByText', () => {
 
   test('Returns the original list if the filter is empty before normalizing', () => {
     const expected = [...testPlayers];
-    expect(filterPlayersByText(testPlayers, '')).toStrictEqual(expected);
+    expect(filterPlayersByText(testPlayers, '')).toEqual(expected);
   });
   test('Returns the original list if the filter is empty after normalizing', () => {
     const expected = [...testPlayers];
-    expect(filterPlayersByText(testPlayers, ' !-\n\r\t')).toStrictEqual(
-      expected
-    );
+    expect(filterPlayersByText(testPlayers, ' !-\n\r\t')).toEqual(expected);
   });
   test('Filters the players by full name match', () => {
     const expected = [{ name: 'foobar' }];
-    expect(filterPlayersByText(testPlayers, 'foobar')).toStrictEqual(expected);
+    expect(filterPlayersByText(testPlayers, 'foobar')).toEqual(expected);
   });
   test('Filters the players by partial match', () => {
     const expected = [{ name: 'foo' }, { name: 'foobar' }];
 
     const result = filterPlayersByText(testPlayers, 'foo');
     // Check that both expected items are present, but no more, and order doesn't matter
-    expect(result).toStrictEqual(expect.arrayContaining(expected));
+    expect(result).toEqual(expect.arrayContaining(expected));
     expect(result).toHaveLength(expected.length);
   });
   test('Returns an empty list if the original list was empty', () => {
     const expected = [];
-    expect(filterPlayersByText([], 'test')).toStrictEqual(expected);
+    expect(filterPlayersByText([], 'test')).toEqual(expected);
   });
 });
