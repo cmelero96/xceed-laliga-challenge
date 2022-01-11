@@ -2,6 +2,7 @@ import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import token from '../../utils/token';
+import GenericMessage from '../shared/GenericMessage';
 import { TeamsHolder, TeamLink } from './styled';
 
 const TeamList = () => {
@@ -21,9 +22,9 @@ const TeamList = () => {
   let content;
 
   if (error) {
-    content = <div>Error</div>;
+    content = <GenericMessage text="Error retrieveng the team list" />;
   } else if (loading) {
-    content = <div>Loading...</div>;
+    content = <GenericMessage text="Loading teams..." />;
   } else {
     content = (
       <>

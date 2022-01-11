@@ -10,6 +10,7 @@ import token from '../../utils/token';
 import TeamContent from './TeamContent';
 import TeamHeader from './TeamHeader';
 import { playerFields, playersDisplayed } from '../../utils/constants';
+import GenericMessage from '../shared/GenericMessage';
 
 const Team = () => {
   const { teamId } = useParams();
@@ -74,9 +75,9 @@ const Team = () => {
 
   let content;
   if (error) {
-    content = <div>Error</div>;
+    content = <GenericMessage text="Error retrieving the player list" />;
   } else if (loading) {
-    content = <div>Loading...</div>;
+    content = <GenericMessage text="Loading players..." />;
   } else {
     content = (
       <TeamContent
