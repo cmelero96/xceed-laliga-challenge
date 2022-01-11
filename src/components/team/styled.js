@@ -43,19 +43,22 @@ export const Header = styled(AppHeader)`
   }
 `;
 
-export const TableRow = styled.div`
-  display: block;
+export const Table = styled.table`
+  width: 100%;
   padding-left: 5%;
-  margin: 1em 0;
+  border-spacing: 0 0.8em;
+`;
+
+export const TableRow = styled.tr`
+  padding: 1em 0;
 
   .col {
-    display: inline-block;
-    width: 25%;
     text-align: left;
     font-size: 14px;
     font-stretch: normal;
     font-style: normal;
     font-weight: 300;
+    width: 30%;
   }
 
   &.header {
@@ -63,6 +66,7 @@ export const TableRow = styled.div`
     color: #b6babd;
     text-transform: uppercase;
     letter-spacing: 1.4px;
+    line-height: 2em;
 
     .col:hover {
       cursor: pointer;

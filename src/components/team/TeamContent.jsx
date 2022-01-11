@@ -1,5 +1,5 @@
 import { playerFields } from '../../utils/constants';
-import { SeeMoreButton, TableRow } from './styled';
+import { SeeMoreButton, Table, TableRow } from './styled';
 
 const TeamContent = ({
   players,
@@ -10,25 +10,31 @@ const TeamContent = ({
 }) => {
   return (
     <>
-      <TableRow className="header">
-        {playerFields.map((field) => (
-          <div key={field} className="col" onClick={() => configSort(field)}>
-            {field}
-          </div>
-        ))}
-      </TableRow>
-      {players.map((player) => (
-        <TableRow key={player.id} className="row">
-          {playerFields.map((field) => (
-            <div
-              key={field}
-              className={`col ${highlightField === field && 'highlighted'}`}
-            >
-              {player[field]}
-            </div>
+      <Table>
+        <thead>
+          <TableRow className="header">
+            {playerFields.map((field) => (
+              <td key={field} className="col" onClick={() => configSort(field)}>
+                {field}
+              </td>
+            ))}
+          </TableRow>
+        </thead>
+        <tbody>
+          {players.map((player) => (
+            <TableRow key={player.id} className="row">
+              {playerFields.map((field) => (
+                <td
+                  key={field}
+                  className={`col ${highlightField === field && 'highlighted'}`}
+                >
+                  {player[field]}
+                </td>
+              ))}
+            </TableRow>
           ))}
-        </TableRow>
-      ))}
+        </tbody>
+      </Table>
       {buttonVisible && (
         <SeeMoreButton onClick={updateRows}>See more</SeeMoreButton>
       )}
