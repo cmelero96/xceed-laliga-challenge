@@ -45,7 +45,7 @@ describe('calculatePlayerAge', () => {
   });
 });
 
-describe.only('sortElementsByField', () => {
+describe('sortElementsByField', () => {
   test('Returns sorted correctly with a string field', () => {
     const unsorted = [
       { test: 'ab' },
