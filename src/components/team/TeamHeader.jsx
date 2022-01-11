@@ -1,4 +1,4 @@
-import { Header } from './styled.js';
+import { GoBackLink, Header } from './styled.js';
 
 import searchIconSmall from '../../assets/lens.png';
 import searchIconMedium from '../../assets/lens@2x.png';
@@ -22,6 +22,9 @@ const TeamHeader = ({ teamName, search, onUpdateSearch }) => {
         ></input>
       </div>
       <h2>{teamName}</h2>
+      <GoBackLink className="back-button" to={'/'}>
+        Go back
+      </GoBackLink>
     </Header>
   );
 };

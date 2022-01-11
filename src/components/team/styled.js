@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { AppHeader } from '../shared/styled.js';
 
 export const Header = styled(AppHeader)`
   position: relative;
+
   h2 {
     font-size: 20px;
     font-weight: 900;
@@ -33,6 +35,11 @@ export const Header = styled(AppHeader)`
       font-family: 'Avenir';
       font-size: 14px;
     }
+  }
+
+  .back-button {
+    position: absolute;
+    right: 4%;
   }
 `;
 
@@ -91,4 +98,27 @@ export const SeeMoreButton = styled.button`
   text-align: center;
   text-transform: uppercase;
   color: #b6babd;
+`;
+
+export const GoBackLink = styled(Link)`
+  padding: 0.5em 1em;
+  flex: 1 0 18%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Avenir';
+  font-size: 14px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: 1.4px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #b6babd;
+
+  @media (max-width: 920px) {
+    flex: 1 0 25%;
+  }
 `;
