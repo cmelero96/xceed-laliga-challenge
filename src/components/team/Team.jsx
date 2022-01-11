@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import {
   calculatePlayerAge,
   filterPlayersByText,
@@ -7,14 +7,9 @@ import {
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
 import token from '../../utils/token';
-import { Header } from './styled.js';
-import { SeeMoreButton, TableRow } from './styled';
-import searchIconSmall from '../../assets/lens.png';
-import searchIconMedium from '../../assets/lens@2x.png';
-import searchIconLarge from '../../assets/lens@3x.png';
-
-const fields = ['name', 'nationality', 'position', 'age'];
-const rowStep = 3;
+import TeamContent from './TeamContent';
+import TeamHeader from './TeamHeader';
+import { playerFields, playersDisplayed } from '../../utils/constants';
 
 const Team = () => {
   const { teamId } = useParams();
@@ -27,12 +22,12 @@ const Team = () => {
   const [filteredPlayers, setFilteredPlayers] = useState([]);
   const [displayPlayers, setDisplayPlayers] = useState([]);
   const [teamName, setTeamName] = useState('');
-  const [sortingField, setSortingField] = useState(fields[0]);
+  const [sortingField, setSortingField] = useState(playerFields[0]);
   const [reverseSort, setReverseSort] = useState(false);
-  const [maxRows, setMaxRows] = useState(rowStep);
+  const [maxRows, setMaxRows] = useState(playersDisplayed);
   const [search, setSearch] = useState('');
 
-  const displayButton = displayPlayers.length < filteredPlayers.length;
+  const buttonVisible = displayPlayers.length < filteredPlayers.length;
 
   // Toggle the reverseSort variable if clicking on the same field; otherwise don't reverse
   const configSort = (field) => {
@@ -42,6 +37,10 @@ const Team = () => {
 
   const changeSearchTerm = (event) => {
     setSearch(event.target.value);
+  };
+
+  const updateRows = () => {
+    setMaxRows((current) => current + playersDisplayed);
   };
 
   // Update the component state when the API response is updated
@@ -57,7 +56,6 @@ const Team = () => {
         }))
       );
       setTeamName(data.name);
-      setMaxRows(rowStep);
     }
   }, [data, loading, error]);
 
@@ -82,51 +80,22 @@ const Team = () => {
     content = <div>Loading...</div>;
   } else {
     content = (
-      <>
-        <TableRow className="header">
-          {fields.map((field) => (
-            <div key={field} className="col" onClick={() => configSort(field)}>
-              {field.toUpperCase()}
-            </div>
-          ))}
-        </TableRow>
-        {displayPlayers.map((player) => (
-          <TableRow key={player.id} className="row">
-            {fields.map((field) => (
-              <div key={field} className="col">
-                {player[field]}
-              </div>
-            ))}
-          </TableRow>
-        ))}
-        {displayButton && (
-          <SeeMoreButton onClick={() => setMaxRows((n) => n + rowStep)}>
-            SEE MORE
-          </SeeMoreButton>
-        )}
-      </>
+      <TeamContent
+        players={displayPlayers}
+        buttonVisible={buttonVisible}
+        updateRows={updateRows}
+        configSort={configSort}
+      ></TeamContent>
     );
   }
 
   return (
     <>
-      <Header>
-        <div className="searchbar">
-          <img
-            className="magnifier"
-            src={searchIconSmall}
-            srcSet={`${searchIconSmall}, ${searchIconMedium} 2x, ${searchIconLarge} 3x`}
-            alt="xceed icon"
-          ></img>
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={changeSearchTerm}
-          ></input>
-        </div>
-        <h2>{teamName}</h2>
-      </Header>
+      <TeamHeader
+        teamName={teamName}
+        search={search}
+        onUpdateSearch={changeSearchTerm}
+      ></TeamHeader>
       {content}
     </>
   );
