@@ -3,14 +3,15 @@ import {
   calculatePlayerAge,
   filterPlayersByText,
   sortElementsByField,
-} from '../utils';
+} from '../../utils';
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
-import token from '../utils/token';
-import { AppHeader, SeeMoreButton, TableRow } from './UI';
-import searchIconSmall from '../assets/lens.png';
-import searchIconMedium from '../assets/lens@2x.png';
-import searchIconLarge from '..//assets/lens@3x.png';
+import token from '../../utils/token';
+import { Header } from './styled.js';
+import { SeeMoreButton, TableRow } from './styled';
+import searchIconSmall from '../../assets/lens.png';
+import searchIconMedium from '../../assets/lens@2x.png';
+import searchIconLarge from '../../assets/lens@3x.png';
 
 const fields = ['name', 'nationality', 'position', 'age'];
 const rowStep = 3;
@@ -109,7 +110,7 @@ const Team = () => {
 
   return (
     <>
-      <AppHeader>
+      <Header>
         <div className="searchbar">
           <img
             className="magnifier"
@@ -125,7 +126,7 @@ const Team = () => {
           ></input>
         </div>
         <h2>{teamName}</h2>
-      </AppHeader>
+      </Header>
       {content}
       <Outlet></Outlet>
     </>

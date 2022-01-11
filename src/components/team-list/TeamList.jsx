@@ -1,7 +1,7 @@
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
-import token from '../utils/token';
-import { TeamsHolder, TeamLink } from './UI';
+import token from '../../utils/token';
+import { TeamsHolder, TeamLink } from './styled';
 
 const TeamList = () => {
   const [{ data, loading, error }] = useAxios({

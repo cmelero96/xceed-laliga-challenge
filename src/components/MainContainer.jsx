@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
-import Team from './Team';
-import TeamList from './TeamList';
-import { InfoWrapper } from './UI';
+import Team from './team/Team';
+import TeamList from './team-list/TeamList';
+import { InfoWrapper } from './shared/styled.js';
 
 const MainContainer = () => {
   return (

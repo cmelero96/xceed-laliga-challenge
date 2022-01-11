@@ -7,7 +7,7 @@ import ligaLogoLarge from './assets/liga-background@3x.png';
 import xceedLogoSmall from './assets/xceed-logo-black.png';
 import xceedLogoMedium from './assets/xceed-logo-black@2x.png';
 import xceedLogoLarge from './assets/xceed-logo-black@3x.png';
-import { AppHeader } from './components/UI';
+import { MainHeader } from './components/shared/styled.js';
 
 const AppWrapper = styled.div`
   position: absolute;
@@ -26,7 +26,7 @@ const AppWrapper = styled.div`
 function App() {
   return (
     <AppWrapper className="App">
-      <AppHeader className="main-header">
+      <MainHeader className="main-header">
         <img
           className="xceed-icon"
           src={xceedLogoSmall}
@@ -34,7 +34,7 @@ function App() {
           alt="xceed icon"
         ></img>
         <h1>Xceed Liga Challenge 2021</h1>
-      </AppHeader>
+      </MainHeader>
       <MainContainer></MainContainer>
     </AppWrapper>
   );
