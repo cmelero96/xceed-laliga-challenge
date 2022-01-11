@@ -13,7 +13,7 @@ const TeamContent = ({
       <TableRow className="header">
         {playerFields.map((field) => (
           <div key={field} className="col" onClick={() => configSort(field)}>
-            {field.toUpperCase()}
+            {field}
           </div>
         ))}
       </TableRow>
@@ -30,7 +30,7 @@ const TeamContent = ({
         </TableRow>
       ))}
       {buttonVisible && (
-        <SeeMoreButton onClick={updateRows}>SEE MORE</SeeMoreButton>
+        <SeeMoreButton onClick={updateRows}>See more</SeeMoreButton>
       )}
     </>
   );

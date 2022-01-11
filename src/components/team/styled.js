@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { AppHeader } from '../shared/styled.js';
 
 export const Header = styled(AppHeader)`
+  position: relative;
   h2 {
     font-size: 20px;
     font-weight: 900;
@@ -14,7 +15,7 @@ export const Header = styled(AppHeader)`
 
   .searchbar {
     position: absolute;
-    left: 5%;
+    left: 2%;
     height: 2em;
     padding: 0 0.5em;
     border-radius: 30px;
@@ -53,10 +54,10 @@ export const TableRow = styled.div`
   &.header {
     font-size: 14px;
     color: #b6babd;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
 
     .col:hover {
-      outline: 1px solid lightgray;
-      border-radius: 1px;
       cursor: pointer;
     }
   }
@@ -88,5 +89,6 @@ export const SeeMoreButton = styled.button`
   line-height: 1.14;
   letter-spacing: 1.4px;
   text-align: center;
+  text-transform: uppercase;
   color: #b6babd;
 `;
