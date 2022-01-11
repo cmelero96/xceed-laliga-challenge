@@ -27,7 +27,6 @@ const Wrapper = styled.div`
     background-color: #f7f7f7;
     border: none;
     outline: none;
-    font-family: Avenir;
     font-size: 14px;
   }
 

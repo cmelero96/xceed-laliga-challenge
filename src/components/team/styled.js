@@ -93,7 +93,6 @@ export const SeeMoreButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  font-family: Avenir;
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;
@@ -115,7 +114,6 @@ export const GoBackLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: Avenir;
   font-size: 14px;
   font-weight: 300;
   font-stretch: normal;

@@ -51,7 +51,6 @@ export default TeamList;
 
 const Header = styled.header`
   padding-bottom: 1em;
-  font-family: Avenir;
   font-weight: 900;
   font-stretch: normal;
   font-style: normal;
