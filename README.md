@@ -21,19 +21,9 @@ const token = '<YOUR API KEY GOES HERE>';
 export default token;
 ```
 
-## Feature progress
+## TODO
 
-- [x] Build project's skeleton using fake API data
-  - [x] Hardcode a sample of the teams and the players instead of doing API calls from the beginning
-  - [x] Create teams list component
-  - [x] Create child component to display the players
-  - [x] Create the unit testing files (leave empty for now)
-- [ ] Refactor the code
-  - [x] Use the `useAxios` library to have a reusable service component to perform the API calls
-  - [ ] Create the handler methods to sort the players
-  - [ ] Create unit tests for the components (not for the API service)
-  - [ ] Styling
-- [ ] Code polishing
-  - [ ] Create a pagination handler to show only 3 players at the beginning, then display 3 more for every time the _Show more_ button is clicked
-  - [ ] Consider using localStorage to cache the API results even when reloading the page
-  - [ ] Setup all unit testing (including the mocked API service)
+- [ ] Highlight the currently-selected column to sort by
+- [ ] Setup component unit testing
+- [ ] Change the HTML structure of the table with players info
+- [ ] (TBD) Make everything responsive (i.e. change layouts so elements don't collapse with each other on small screens, etc)
