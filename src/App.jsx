@@ -60,8 +60,6 @@ const MainHeader = styled(AppHeader)`
   }
 
   h1 {
-    width: 361px;
-    height: 26px;
     font-size: 28px;
     font-weight: 900;
     font-stretch: normal;
