@@ -128,7 +128,6 @@ const Team = () => {
         <h2>{teamName}</h2>
       </Header>
       {content}
-      <Outlet></Outlet>
     </>
   );
 };
