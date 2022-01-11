@@ -1,5 +1,6 @@
 import {
   calculatePlayerAge,
+  filterPlayersByText,
   normalizeText,
   sortElementsByField,
 } from '../../utils';
@@ -157,5 +158,36 @@ describe('normalizeText', () => {
 
     const expected = 'test';
     expect(normalizeText(testString)).toBe(expected);
+  });
+});
+
+describe('filterPlayersByText', () => {
+  const testPlayers = [{ name: 'foo' }, { name: 'bar' }, { name: 'foobar' }];
+
+  test('Returns the original list if the filter is empty before normalizing', () => {
+    const expected = [...testPlayers];
+    expect(filterPlayersByText(testPlayers, '')).toStrictEqual(expected);
+  });
+  test('Returns the original list if the filter is empty after normalizing', () => {
+    const expected = [...testPlayers];
+    expect(filterPlayersByText(testPlayers, ' !-\n\r\t')).toStrictEqual(
+      expected
+    );
+  });
+  test('Filters the players by full name match', () => {
+    const expected = [{ name: 'foobar' }];
+    expect(filterPlayersByText(testPlayers, 'foobar')).toStrictEqual(expected);
+  });
+  test('Filters the players by partial match', () => {
+    const expected = [{ name: 'foo' }, { name: 'foobar' }];
+
+    const result = filterPlayersByText(testPlayers, 'foo');
+    // Check that both expected items are present, but no more, and order doesn't matter
+    expect(result).toStrictEqual(expect.arrayContaining(expected));
+    expect(result).toHaveLength(expected.length);
+  });
+  test('Returns an empty list if the original list was empty', () => {
+    const expected = [];
+    expect(filterPlayersByText([], 'test')).toStrictEqual(expected);
   });
 });
