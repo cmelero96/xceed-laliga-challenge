@@ -34,10 +34,11 @@ const Wrapper = styled.div`
     position: fixed;
     top: unset;
     bottom: 1%;
-    width: 40%;
+    width: fit-content;
     box-shadow: 0 1px 2px 0 black;
 
     input {
+      padding-left: 0.5em;
       flex-basis: 85%;
       margin: 0;
     }
