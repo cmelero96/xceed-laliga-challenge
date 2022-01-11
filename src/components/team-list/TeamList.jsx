@@ -1,5 +1,6 @@
 import useAxios from 'axios-hooks';
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import token from '../../utils/token';
 import { TeamsHolder, TeamLink } from './styled';
 
@@ -26,7 +27,7 @@ const TeamList = () => {
   } else {
     content = (
       <>
-        <header>Select a team to see its roster</header>
+        <Header>Select a team to see its roster</Header>
         <TeamsHolder>
           {teams.map((team) => (
             <TeamLink
@@ -46,3 +47,15 @@ const TeamList = () => {
 };
 
 export default TeamList;
+
+const Header = styled.header`
+  padding-bottom: 1em;
+  font-family: Avenir;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.93;
+  letter-spacing: normal;
+  color: #3e4b54;
+  font-size: 28px;
+`;
