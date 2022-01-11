@@ -1,4 +1,8 @@
-import { calculatePlayerAge, sortElementsByField } from '../../utils';
+import {
+  calculatePlayerAge,
+  normalizeText,
+  sortElementsByField,
+} from '../../utils';
 
 describe('calculatePlayerAge', () => {
   test('Returns the correct age', () => {
@@ -125,5 +129,33 @@ describe('sortElementsByField', () => {
 
   test('Returns an empty array when provided no elements', () => {
     expect(sortElementsByField([], 'test')).toStrictEqual([]);
+  });
+});
+
+describe('normalizeText', () => {
+  test('Removes accents and diacritics from letters', () => {
+    const testString =
+      'àÀáÁâÂãÃäÅåÄèÈéÉêëÊËìÌíÍîÎïÏòÒóÓôÔõÕöÖùÙúÚûÛüÜýÝÿŸñÑçÇßØøÆæœ';
+
+    const expected = 'aaaaaaaaaaaaeeeeeeeeiiiiiiiioooooooooouuuuuuuuyyyynncc';
+    expect(normalizeText(testString)).toBe(expected);
+  });
+  test('Removes all non-letter characters, besides spaces that separate words', () => {
+    const testString = 'a1234567890  -_*¡!@#$%^&*b()_-={}[]:"<>,.¿?\\/~` c';
+
+    const expected = 'a  b c';
+    expect(normalizeText(testString)).toBe(expected);
+  });
+  test('Returns a trimmed string', () => {
+    const testString = ' \n\t\r a \n\t\r ';
+
+    const expected = 'a';
+    expect(normalizeText(testString)).toBe(expected);
+  });
+  test('Returns a lowercased string', () => {
+    const testString = 'TEST';
+
+    const expected = 'test';
+    expect(normalizeText(testString)).toBe(expected);
   });
 });

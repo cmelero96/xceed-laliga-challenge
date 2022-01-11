@@ -43,7 +43,7 @@ export const sortElementsByField = (elements, field, descending = false) => {
   return sorted;
 };
 
-const normalizeText = (text) => {
+export const normalizeText = (text) => {
   return text
     .trim()
     .normalize('NFD')
