@@ -83,6 +83,7 @@ const Team = () => {
       <TeamContent
         players={displayPlayers}
         buttonVisible={buttonVisible}
+        highlightField={sortingField}
         updateRows={updateRows}
         configSort={configSort}
       ></TeamContent>
