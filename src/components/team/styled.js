@@ -15,28 +15,6 @@ export const Header = styled(AppHeader)`
     color: #46555e;
   }
 
-  .searchbar {
-    position: absolute;
-    left: 2%;
-    height: 2em;
-    padding: 0 0.5em;
-    border-radius: 30px;
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    input {
-      margin: 0 1em;
-      height: 50%;
-      background-color: #f7f7f7;
-      border: none;
-      outline: none;
-      font-family: 'Avenir';
-      font-size: 14px;
-    }
-  }
-
   .back-button {
     position: absolute;
     right: 4%;
@@ -48,10 +26,6 @@ export const Header = styled(AppHeader)`
 
     h2 {
       padding-left: 2em;
-    }
-
-    .searchbar {
-      display: none;
     }
   }
 `;
