@@ -41,6 +41,19 @@ export const Header = styled(AppHeader)`
     position: absolute;
     right: 4%;
   }
+
+  @media (max-width: 920px) {
+    justify-content: flex-start;
+    padding: 0;
+
+    h2 {
+      padding-left: 2em;
+    }
+
+    .searchbar {
+      display: none;
+    }
+  }
 `;
 
 export const Table = styled.table`
@@ -85,6 +98,20 @@ export const TableRow = styled.tr`
       font-style: oblique;
     }
   }
+
+  @media (max-width: 920px) {
+    .col {
+      padding-right: 0.2em;
+    }
+
+    &.header .col {
+      font-size: 12px;
+    }
+
+    &.row .col {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const SeeMoreButton = styled.button`
@@ -102,6 +129,10 @@ export const SeeMoreButton = styled.button`
   text-align: center;
   text-transform: uppercase;
   color: #b6babd;
+
+  @media (max-width: 920px) {
+    font-size: 12px;
+  }
 `;
 
 export const GoBackLink = styled(Link)`
@@ -123,6 +154,7 @@ export const GoBackLink = styled(Link)`
   color: #b6babd;
 
   @media (max-width: 920px) {
+    font-size: 12px;
     flex: 1 0 25%;
   }
 `;

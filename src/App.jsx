@@ -50,11 +50,9 @@ const AppWrapper = styled.div`
 `;
 
 const MainHeader = styled(AppHeader)`
-  &.main-header {
-    height: 7.5rem;
-    border: solid 1px #979797;
-    background-color: #fff;
-  }
+  height: 7.5rem;
+  border: solid 1px #979797;
+  background-color: #fff;
 
   .xceed-icon {
     position: absolute;
@@ -107,19 +105,10 @@ const MainContainer = styled.section`
   line-height: 1.3;
   letter-spacing: normal;
 
-  header {
-    font-size: 28px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 0.93;
-    color: #3e4b54;
-    padding: 0 0 2rem 0;
-  }
-
   @media (max-width: 920px) {
     width: 100%;
     margin: 4rem 0;
+    padding: 1rem 0;
     font-size: 16px;
   }
 `;
