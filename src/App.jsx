@@ -38,7 +38,7 @@ export default App;
 const AppWrapper = styled.div`
   position: absolute;
   width: 100%;
-  height: 1382px;
+  height: 100%;
   background-image: image-set(
     url(${ligaLogoSmall}) 1x,
     url(${ligaLogoMedium}) 2x,
@@ -46,7 +46,7 @@ const AppWrapper = styled.div`
   );
   background-repeat: no-repeat;
   background-color: #f4f4f4;
-  background-size: contain;
+  background-size: 100% auto; ;
 `;
 
 const MainHeader = styled(AppHeader)`
