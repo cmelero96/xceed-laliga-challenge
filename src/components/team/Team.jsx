@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import {
   calculatePlayerAge,
   filterPlayersByText,
@@ -13,6 +13,7 @@ import { playerFields, playersDisplayed } from '../../utils/constants';
 
 const Team = () => {
   const { teamId } = useParams();
+  const { state } = useLocation();
   const [{ data, loading, error }] = useAxios({
     baseURL: 'https://api.football-data.org/v2',
     url: `/teams/${teamId}`,
@@ -21,7 +22,6 @@ const Team = () => {
   const [players, setPlayers] = useState([]);
   const [filteredPlayers, setFilteredPlayers] = useState([]);
   const [displayPlayers, setDisplayPlayers] = useState([]);
-  const [teamName, setTeamName] = useState('');
   const [sortingField, setSortingField] = useState(playerFields[0]);
   const [reverseSort, setReverseSort] = useState(false);
   const [maxRows, setMaxRows] = useState(playersDisplayed);
@@ -55,7 +55,6 @@ const Team = () => {
           age: calculatePlayerAge(player),
         }))
       );
-      setTeamName(data.name);
     }
   }, [data, loading, error]);
 
@@ -93,7 +92,7 @@ const Team = () => {
   return (
     <>
       <TeamHeader
-        teamName={teamName}
+        teamName={(state && state.teamName) || (data && data.name)}
         search={search}
         onUpdateSearch={changeSearchTerm}
       ></TeamHeader>

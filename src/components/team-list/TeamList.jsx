@@ -29,7 +29,11 @@ const TeamList = () => {
         <header>Select a team to see its roster</header>
         <TeamsHolder>
           {teams.map((team) => (
-            <TeamLink key={team.id} to={`/${team.id}`}>
+            <TeamLink
+              key={team.id}
+              to={`/${team.id}`}
+              state={{ teamName: team.name }}
+            >
               {team.name}
             </TeamLink>
           ))}
