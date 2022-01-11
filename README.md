@@ -23,7 +23,7 @@ export default token;
 
 ## TODO
 
-- [ ] Highlight the currently-selected column to sort by
+- [x] Highlight the currently-selected column to sort by
 - [ ] Setup component unit testing
 - [ ] Change the HTML structure of the table with players info
 - [ ] (TBD) Make everything responsive (i.e. change layouts so elements don't collapse with each other on small screens, etc)
