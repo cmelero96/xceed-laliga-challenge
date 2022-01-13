@@ -14,7 +14,7 @@ This project is a Single-Page Application that displays all the teams in the Spa
 
 This app requires a [football-data](https://www.football-data.org/) API key to work properly.
 
-You can grab one for free at their website, then create a new file called `token.js` and place it inside `src/utils`. Then copy-paste the following into your new file:
+You can grab one for free at their website, then create a new file called `token.js` and place it inside `src/utils/` folder. Then copy-paste the following into your new file:
 
 ```
 const token = '<YOUR API KEY GOES HERE>';
