@@ -7,7 +7,7 @@ This project is a Single-Page Application that displays all the teams in the Spa
 - If you don't have it already, [install Git](https://github.com/git-guides/install-git).
 - Use the command `git clone https://github.com/cmelero96/xceed-laliga-challenge.git` to download a local copy
 - Alternatively to using Git, you can download a local copy from the repo's main page, by clicking on the _Code_ button and selecting _Download ZIP_. Or just follow [this link](https://github.com/cmelero96/xceed-laliga-challenge/archive/refs/heads/master.zip).
-- With a terminal of your choice, go to the repo's main folder and execute the command `npm run start`.
+- With a terminal of your choice, go to the repo's main folder and execute the command `npm install`, and when it finishes, `npm run start`.
 - The web should open by itself in a few seconds in your default browser. It can also be accessed by typing `localhost:3000` in the browser's searchbar.
 
 ### API Key
